@@ -1205,7 +1205,7 @@ bind_printf_variable (name, value, flags)
   SHELL_VAR *v;
 
 #if defined (ARRAY_VARS)
-  if (valid_array_reference (name) == 0)
+  if (valid_array_reference (name, 0) == 0)
     v = bind_variable (name, value, flags);
   else
     v = assign_array_element (name, value, flags);
