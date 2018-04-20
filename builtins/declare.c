@@ -256,7 +256,7 @@ declare_internal (list, local_var)
       if (t = strchr (name, '['))	/* ] */
 	{
 	  /* If offset != 0 we have already validated any array reference */
-	  if (offset == 0 && valid_array_reference (name, 0) == 0)
+	  if (offset == 0 && valid_array_reference (name) == 0)
 	    {
 	      sh_invalidid (name);
 	      assign_error++;
@@ -378,7 +378,7 @@ declare_internal (list, local_var)
 	  if (var == 0 && (flags_on & att_nameref))
 	    {
 	      /* See if we are trying to modify an existing nameref variable */
-	      var = mkglobal ? find_global_variable_last_nameref (name, 0) : find_variable_last_nameref (name);
+	      var = mkglobal ? find_global_variable_last_nameref (name) : find_variable_last_nameref (name);
 	      if (var && nameref_p (var) == 0)
 		var = 0;
 	    }
@@ -390,7 +390,7 @@ declare_internal (list, local_var)
 	  else if (var == 0 && (flags_off & att_nameref))
 	    {
 	      /* See if we are trying to modify an existing nameref variable */
-	      refvar = mkglobal ? find_global_variable_last_nameref (name, 0) : find_variable_last_nameref (name);
+	      refvar = mkglobal ? find_global_variable_last_nameref (name) : find_variable_last_nameref (name);
 	      if (refvar && nameref_p (refvar) == 0)
 		refvar = 0;
 	      if (refvar)

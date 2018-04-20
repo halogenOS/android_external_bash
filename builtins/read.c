@@ -850,7 +850,7 @@ bind_read_variable (name, value)
   SHELL_VAR *v;
 
 #if defined (ARRAY_VARS)
-  if (valid_array_reference (name, 0) == 0)
+  if (valid_array_reference (name) == 0)
     v = bind_variable (name, value, 0);
   else
     v = assign_array_element (name, value, 0);
